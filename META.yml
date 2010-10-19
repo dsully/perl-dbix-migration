@@ -1,0 +1,17 @@
+---
+name: DBIx-Migration
+version: 0.05
+author:
+  - 'Sebastian Riedel, C<sri@oook.de>'
+abstract: 'Seamless DB schema up- and downgrades'
+license: perl
+requires:
+  Class::Accessor::Fast: 0
+  DBI: 0
+  File::Slurp: 0
+  File::Spec: 0
+provides:
+  DBIx::Migration:
+    file: lib/DBIx/Migration.pm
+    version: 0.05
+generated_by: Module::Build version 0.2611
