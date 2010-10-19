@@ -6,7 +6,7 @@ use DBI;
 use File::Slurp;
 use File::Spec;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 __PACKAGE__->mk_accessors(qw/debug dir dsn password username/);
 
@@ -190,7 +190,7 @@ sub _files {
     for my $i (@$need) {
         opendir(DIR, $self->dir) or die $!;
         while (my $file = readdir(DIR)) {
-            next unless $file =~ /${i}_$type\.sql$/;
+            next unless $file =~ /(^|\D)${i}_$type\.sql$/;
             $file = File::Spec->catdir($self->dir, $file);
             push @files, { name => $file, version => $i };
         }

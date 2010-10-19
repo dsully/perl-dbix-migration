@@ -1,5 +1,9 @@
 Tis file documents the revision history for Perl extension DBIx::Migration.
 
+0.06  Tue Oct 19 09:27:56 PDT 2010
+
+	- Fix for http://rt.cpan.org/Public/Bug/Display.html?id=35393
+
 0.05  2006-06-06 12:44:12 PDT 2006
 
 	- Fixed to work on Win32 (remove glob calls)
