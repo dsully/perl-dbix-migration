@@ -6,7 +6,7 @@ use DBI;
 use File::Slurp;
 use File::Spec;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 __PACKAGE__->mk_accessors(qw/debug dir dsn password username/);
 

@@ -9,6 +9,7 @@ my $build = Module::Build->new(
         'File::Slurp'           => 0,
         'File::Spec'            => 0,
         'DBI'                   => 0,
+        'DBD::SQLite'           => 0,
         'Class::Accessor::Fast' => 0
     },
     create_readme => 1,
