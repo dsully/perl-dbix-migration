@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 7;
+use Test::More tests => 8;
 
 use DBIx::Migration;
 use DBI;
@@ -29,6 +29,11 @@ is( $m->version, 2 );
 
 $m->migrate(0);
 is( $m->version, 0 );
+
+my $m2 = DBIx::Migration->new({dbh=>$m->dbh,dir=>'./t/sql/'});
+
+is($m2->version,0);
+
 
 END {
     unlink './t/sqlite_test';
