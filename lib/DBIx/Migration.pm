@@ -8,7 +8,7 @@ use File::Spec;
 
 our $VERSION = '0.07';
 
-__PACKAGE__->mk_accessors(qw/debug dir dsn password username/);
+__PACKAGE__->mk_accessors(qw/debug dir dsn password username dbh/);
 
 =head1 NAME
 
@@ -153,6 +153,7 @@ sub version {
 
 sub _connect {
     my $self = shift;
+    return $self->{_dbh}= $self->dbh->clone if $self->dbh;
     $self->{_dbh} = DBI->connect(
         $self->dsn,
         $self->username,
@@ -164,6 +165,7 @@ sub _connect {
         }
       )
       or die qq/Couldn't connect to database, "$!"/;
+    $self->dbh($self->{_dbh})
 }
 
 sub _create_migration_table {
