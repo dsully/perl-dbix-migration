@@ -65,6 +65,10 @@ Get/Set directory.
 
 Get/Set dsn.
 
+=item $self->dbh($dsn)
+
+Get/Set dbh.
+
 =item $self->migrate($version)
 
 Migrate database to version.
