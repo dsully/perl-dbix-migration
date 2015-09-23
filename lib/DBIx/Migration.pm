@@ -80,7 +80,7 @@ sub migrate {
     $self->_connect;
     $wanted = $self->_newest unless defined $wanted;
     my $version = $self->_version;
-    if ( defined $version && ( $wanted eq $version ) ) {
+    if ( defined $version && ( $wanted == $version ) ) {
         print "Database is already at version $wanted\n" if $self->debug;
         return 1;
     }
@@ -176,8 +176,8 @@ sub _create_migration_table {
     my $self = shift;
     $self->{_dbh}->do(<<"EOF");
 CREATE TABLE dbix_migration (
-    name CHAR(64) PRIMARY KEY,
-    value CHAR(64)
+    name VARCHAR(64) PRIMARY KEY,
+    value VARCHAR(64)
 );
 EOF
     $self->{_dbh}->do(<<"EOF");

@@ -5,6 +5,9 @@ my $build = Module::Build->new(
     create_makefile_pl => 'passthrough',
     license            => 'perl',
     module_name        => 'DBIx::Migration',
+    test_requires      => {
+        'Test::PostgreSQL'      => 0
+    },
     requires           => {
         'File::Slurp'           => 0,
         'File::Spec'            => 0,
